@@ -1,0 +1,47 @@
+﻿start - Регистрация
+help - Получить справку
+statistics - Статистика
+
+
+
+
+скачать и установить heroku app:
+https://devcenter.heroku.com/articles/getting-started-with-python#set-up
+
+скачать и установить git:
+https://git-scm.com/
+
+создать четыре файла:
+runtime.txt (python-3.7.0)
+.gitignore (записать папки и файлы)
+pip freeze > requirements.txt
+Procfile, (worker: python3.7 main.py)
+
+запустить терминал в папке со всеми файлами и прописать:
+git init - для первого раза
+git config --global user.email "ya.ne.angel.kimi@gmail.com"
+git config --global user.name "Bolat Mukashev"
+git add .
+git commit -am "любой коммент"
+
+запустить терминал внутри bot.py и прописать:
+heroku login
+heroku create <имя для репозитория>
+heroku git:remote -a <имя репозитария на heroku>
+git push heroku master
+heroku ps:scale worker=1
+
+
+Для внесения изменений:
+heroku login
+git add .
+git commit -am "make it better"
+git push heroku master
+
+heroku open		- проверить работоспособность
+heroku logs --tail	- посмотреть логи
+
+
+При тех. работах, для включения и выключения бота:
+heroku ps:scale worker=1
+heroku ps:scale worker=0
